@@ -1,11 +1,33 @@
 /*
+ * Font Definitions for LED Matrix Display
+ * 
  * Created by ArduinoGetStarted.com
- *
  * This example code is in the public domain
- *
- * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-uno-r4-led-matrix-displays-number-character
+ * 
+ * Font source and tutorial: 
+ * https://arduinogetstarted.com/tutorials/arduino-uno-r4-led-matrix-displays-number-character
+ * 
+ * DESCRIPTION:
+ * This file contains 5x8 pixel patterns for numbers (0-9) and letters (A-Z).
+ * Each character is defined using 8 rows of binary numbers.
+ * 
+ * HOW TO READ THE BINARY PATTERNS:
+ * Each row is a 5-bit binary number where:
+ *   1 = LED ON (lit pixel)
+ *   0 = LED OFF (dark pixel)
+ * 
+ * Example: The letter 'A'
+ *   0b00100  →  [  ■  ]
+ *   0b01010  →  [ ■ ■ ]
+ *   0b10001  →  [■   ■]
+ *   0b11111  →  [■■■■■]
+ *   0b10001  →  [■   ■]
+ *   0b10001  →  [■   ■]
+ *   0b10001  →  [■   ■]
+ *   0b10001  →  [■   ■]
  */
 
+// Array of 36 characters (10 digits + 26 letters), each is 8 rows tall
 uint8_t fonts[36][8] = {
   {
     // 0
