@@ -63,34 +63,58 @@ void loop()
 
 void updateMatrix(int analogVal, int digitalVal) {
   // Clear frame
-  for (int r = 0; r < 8; r++) {
-    for (int c = 0; c < 12; c++) {
-      frame[r][c] = 0;
-    }
-  }
+  memset(frame, 0, sizeof(frame));
 
-  // Top part: Bar chart for Analog Value
-  // Map 0-1023 to 0-12 columns
-  int barWidth = map(analogVal, 0, 1023, 0, 12);
-  
-  // Draw bar on top 4 rows (0-3)
+  // --- Labels in cols 0-3, col 4 is spacer ---
+  //
+  // "A" label for analog section (rows 0-3):
+  //   _xx_
+  //   x__x
+  //   xxxx
+  //   x__x
+  const uint8_t labelA[4][4] = {
+    {0,1,1,0},
+    {1,0,0,1},
+    {1,1,1,1},
+    {1,0,0,1}
+  };
+
+  // "D" label for digital section (rows 4-7):
+  //   xx__
+  //   x__x
+  //   x__x
+  //   xx__
+  const uint8_t labelD[4][4] = {
+    {1,1,0,0},
+    {1,0,0,1},
+    {1,0,0,1},
+    {1,1,0,0}
+  };
+
   for (int r = 0; r < 4; r++) {
-    for (int c = 0; c < barWidth; c++) {
-      frame[r][c] = 1;
+    for (int c = 0; c < 4; c++) {
+      frame[r][c]     = labelA[r][c];
+      frame[r + 4][c] = labelD[r][c];
     }
   }
 
-  // Bottom part: Digital Value indicator
-  // If digitalVal is 1 (active), fill bottom 4 rows (4-7)
+  // --- Bars in cols 5-11 (7 columns wide, 2 rows tall) ---
+
+  // Analog bar: rows 1-2, more light = wider bar
+  int analogBar = map(analogVal, 0, 1023, 7, 0);
+  for (int r = 1; r <= 2; r++) {
+    for (int c = 0; c < analogBar; c++) {
+      frame[r][5 + c] = 1;
+    }
+  }
+
+  // Digital bar: rows 5-6, full bar if threshold crossed, empty if not
   if (digitalVal == 1) {
-    for (int r = 4; r < 8; r++) {
-      for (int c = 0; c < 12; c++) {
+    for (int r = 5; r <= 6; r++) {
+      for (int c = 5; c < 12; c++) {
         frame[r][c] = 1;
       }
     }
-  } else {
-    // Optional: Draw an outline or just leave empty for 0
-    // Let's leave it empty as per "empty or filled bar" request
   }
 
   matrix.renderBitmap(frame, 8, 12);

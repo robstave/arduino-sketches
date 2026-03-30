@@ -1,10 +1,10 @@
 # Flyingfish-Debug - Serial Monitor Debugging Practice
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This sketch is **all about learning to debug with the Serial Monitor**. It does the exact same thing as flyingfish1, but the emphasis here is on watching the sensor values in real-time to understand how the sensor behaves.
 
-## 🔍 Why This Sketch Exists
+## Why This Sketch Exists
 
 **The #1 Arduino debugging skill:** Using the Serial Monitor to watch what your sensors are doing!
 
@@ -15,11 +15,11 @@ Most Arduino problems come from:
 
 This sketch is **practice for the most important debugging tool in your toolkit**.
 
-## 🔌 Hardware Setup
+## Hardware Setup
 
 Same as flyingfish1 - see the main [ldr folder README](../README.md) for wiring.
 
-## 🖥️ Using the Serial Monitor
+## Using the Serial Monitor
 
 ### Opening the Serial Monitor
 
@@ -30,9 +30,15 @@ Same as flyingfish1 - see the main [ldr folder README](../README.md) for wiring.
 ### What You'll See
 
 ```
-LDR Value: 450 -> PWM: 134 | Digital (A4): 0
-LDR Value: 445 -> PWM: 137 | Digital (A4): 0
-LDR Value: 620 -> PWM: 49 | Digital (A4): 1
+ 
+
+
+LDR Value: 992 -> PWM: 8 | Digital (A4): 0
+LDR Value: 920 -> PWM: 26 | Digital (A4): 0
+LDR Value: 861 -> PWM: 41 | Digital (A4): 0
+LDR Value: 500 -> PWM: 131 | Digital (A4): 1
+LDR Value: 295 -> PWM: 182 | Digital (A4): 1
+LDR Value: 334 -> PWM: 172 | Digital (A4): 1
 ```
 
 Each line shows:
@@ -40,7 +46,7 @@ Each line shows:
 - **PWM** - What brightness value is being sent to the LED (0-255)
 - **Digital** - Threshold state (0=below threshold, 1=above threshold)
 
-## 🧪 Debugging Experiments to Try
+## Debugging Experiments to Try
 
 ### Experiment 1: Understanding the Range
 
@@ -78,7 +84,7 @@ Leave the sketch running and check values at different times:
 
 **Challenge:** Modify the code to reverse this relationship!
 
-## 💡 Debugging Tips for Your Own Projects
+## Debugging Tips for Your Own Projects
 
 **Problem:** "My sensor isn't working"
 - **Debug step:** Open Serial Monitor. Is it printing anything? If yes, sensor IS working - your code might be the issue!
@@ -92,7 +98,7 @@ Leave the sketch running and check values at different times:
 **Problem:** "Sensor reads the same value always"
 - **Debug step:** Always 0 or 1023 = bad connection. Always the same mid-value = something in code is overwriting it.
 
-## 🎓 What You're Learning
+## What You're Learning
 
 - **Serial debugging** - The most critical Arduino skill
 - **Sensor calibration** - Understanding what "dark" and "bright" mean in numbers

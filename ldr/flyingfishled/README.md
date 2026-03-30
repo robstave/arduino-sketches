@@ -1,15 +1,15 @@
 # Flyingfishled - LED Matrix Light Visualization
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This sketch combines the light sensor from flyingfish1 with the Arduino UNO R4's built-in LED matrix to create a live visual display of light levels. It's perfect for seeing sensor data at a glance without needing the Serial Monitor!
 
-## 🔌 Hardware Required
+## Hardware Required
 
 - **Arduino UNO R4 WiFi** (for the built-in LED matrix)
 - **Flying Fish LDR Module** wired as usual (see [main ldr README](../README.md))
 
-## 📊 The Display
+## The Display
 
 The LED matrix is divided into two sections:
 
@@ -30,7 +30,7 @@ Shows the digital threshold state:
 
 This creates a clear visual: when the bottom half lights up, you know the sensor has crossed the threshold!
 
-## 💡 How It Works
+## How It Works
 
 ### Bar Chart Mapping
 
@@ -50,7 +50,7 @@ if (digitalVal == 1) {
 
 When the digital pin reads HIGH (light above threshold), the entire bottom half lights up as a solid block.
 
-## 💡 Key Things to Tweak
+## Key Things to Tweak
 
 ### Easy Changes
 

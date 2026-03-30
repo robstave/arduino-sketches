@@ -2,16 +2,15 @@
 
 Light-dependent resistor (LDR) experiments using the Flying Fish LDR sensor module. Learn how to read light levels and use them to control your Arduino projects.
 
-## 💡 About the Flying Fish LDR Module
+## About the Flying Fish LDR Module
 
 The Flying Fish LDR sensor module is a ready-to-use light sensor breakout board that provides both analog and digital outputs. It includes an onboard potentiometer to set a light threshold for the digital output.
 
-### 🔗 Resources
+### Wiring Diagram
 
-- [Flying Fish LDR Module User Manual (Instructables)](https://www.instructables.com/LDR-Sensor-Module-Users-Manual-V10/)
-- [Light Sensing with Flying Fish Series (Hackster.io)](https://www.hackster.io/ingo-lohs/light-sensing-with-the-flying-fish-series-from-mh-0e51ab)
+![LDR Wiring Diagram](ldr.png)
 
-### 🔌 Wiring
+### Wiring
 
 | Module Pin | Arduino Pin | Description |
 |------------|-------------|-------------|
@@ -22,43 +21,32 @@ The Flying Fish LDR sensor module is a ready-to-use light sensor breakout board 
 
 **Output LED:** Pin 13 (built-in LED, PWM capable)
 
-## 📊 Project Overview
+## Project Overview
 
 | Sketch | Readme | Description | Hardware |
 |--------|--------|-------------|----------|
-| flyingfish1 | [flyingfish1/README.md](flyingfish1/README.md) | Basic sensor reading with LED output | Flying Fish LDR module |
 | flyingfish-debug | [flyingfish-debug/README.md](flyingfish-debug/README.md) | Debugging-focused: Serial Monitor practice | Flying Fish LDR module |
 | flyingfishled | [flyingfishled/README.md](flyingfishled/README.md) | LED matrix visualization | Flying Fish LDR + UNO R4 |
 
-## 🎓 Learning Progression
+## Learning Progression
 
-### 1. [flyingfish1](flyingfish1/) - Basic Reading
+### 1. [flyingfish-debug](flyingfish-debug/) - Serial Monitor Debugging
 
-Learn the fundamentals:
-- Reading analog sensor values (0-1023)
-- Reading digital threshold values (HIGH/LOW)
-- Mapping values to output ranges
-- Controlling LED brightness with PWM
-
-### 2. [flyingfish-debug](flyingfish-debug/) - **Debugging Practice** ⭐
-
-**This is where the real learning happens!**
-
-The main goal of this sketch is to learn **how to debug with the Serial Monitor**:
+**Start here!** Learn how to debug with the Serial Monitor:
 - Open Tools → Serial Monitor (or Ctrl+Shift+M)
 - Watch the numbers change as you cover/uncover the sensor
 - Understand what the sensor "sees" in different lighting conditions
 - Learn to read sensor data to troubleshoot projects
 
-**Why debugging matters:** Most Arduino problems come from sensors giving unexpected values. Learning to watch sensor data in real-time is one of the most important Arduino skills!
+**Why this matters:** Most Arduino problems come from sensors giving unexpected values. Learning to watch sensor data in real-time is one of the most important Arduino skills!
 
-### 3. [flyingfishled](flyingfishled/) - Matrix Visualization
+### 2. [flyingfishled](flyingfishled/) - LED Matrix Visualization
 
-Combine skills:
-- Everything from the previous sketches
-- Plus: Displaying data on the UNO R4's LED matrix
+Visualize your sensor data:
+- Displaying data on the Arduino UNO R4's built-in LED matrix
 - Visual bar chart showing light level
 - Digital indicator showing threshold state
+- See your sensor data at a glance without the Serial Monitor
 
 ## 💡 What You'll Learn
 
