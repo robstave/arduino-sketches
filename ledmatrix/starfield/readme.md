@@ -1,10 +1,10 @@
 # Starfield Animation Series
 
-## 🎯 Overview
+## Overview
 
 This folder contains three progressive sketches that create a 3D starfield effect on the Arduino UNO R4's LED matrix. You'll build from a simple "flying through space" animation to an interactive spaceship simulator with joystick control and laser cannons!
 
-## 🚀 The Three-Sketch Journey
+## The Three-Sketch Journey
 
 ### 1. [starfield1](starfield1/) - The Basic Star Field
 
@@ -54,7 +54,7 @@ This folder contains three progressive sketches that create a 3D starfield effec
 - Cannon positions (`x = -3.0` and `x = 3.0`) - Make them wider or narrower
 - Laser starting position (`z = 1.0`) - Spawn closer or farther
 
-## 🎮 How the "Magic" Works (Don't Worry About the Math!)
+## How the "Magic" Works (Don't Worry About the Math!)
 
 The core trick is called **perspective projection**. Here's the simple version:
 
@@ -73,7 +73,7 @@ screenY = (starY / starZ) * 1.5 + 4;  // 4 is center of 8 rows
 
 That's it! You don't need to understand *why* dividing by Z creates perspective - just know that **it does**, and now you can experiment with it!
 
-## 💡 Exploration Ideas
+## Exploration Ideas
 
 The best way to learn is by **changing things and seeing what happens**:
 
@@ -91,7 +91,7 @@ The best way to learn is by **changing things and seeing what happens**:
 
 7. **Weapon placement:** Change the laser cannon X positions from `-3.0` and `3.0` to something else. What if they were both at `0.0` (center fire)?
 
-## 🎓 What You're Actually Learning
+## What You're Actually Learning
 
 Even though we're not diving deep into the math, you're learning **real game development concepts**:
 

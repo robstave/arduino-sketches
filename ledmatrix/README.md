@@ -2,7 +2,7 @@
 
 Sketches featuring the built-in LED matrix on the Arduino UNO R4 WiFi.
 
-## 📊 Project Overview
+## Project Overview
 
 | Sketch | Readme | Requirements |
 |--------|--------|--------------|
@@ -16,7 +16,7 @@ Sketches featuring the built-in LED matrix on the Arduino UNO R4 WiFi.
 | eyeball | [eyeball/readme.md](eyeball/readme.md) | Joystick |
 | starfield | [starfield/readme.md](starfield/readme.md) | None (starfield1), Joystick (starfield2/3) |
 
-## 🎯 About the LED Matrix
+## About the LED Matrix
 
 The Arduino UNO R4 WiFi includes a built-in **12×8 LED matrix** (96 LEDs total) that can display:
 - Text and numbers
@@ -26,7 +26,7 @@ The Arduino UNO R4 WiFi includes a built-in **12×8 LED matrix** (96 LEDs total)
 
 Each LED is either fully ON or OFF - there's no brightness control (PWM) for individual pixels. This means effects rely on patterns, movement, and clever timing rather than fading or dimming.
 
-## 🛠️ Bill of Materials (BOM)
+## Bill of Materials (BOM)
 
 ### Core Hardware
 - **Arduino UNO R4 WiFi** - Required for all projects
@@ -52,14 +52,14 @@ When a joystick is required, use this standard connection:
 
 **Note:** The button uses `INPUT_PULLUP` mode - it reads LOW when pressed, HIGH when released.
 
-## 📚 Getting Started
+## Getting Started
 
 1. **Pick a project** - Start with simpler ones like `alphanum` or `car-driving`
 2. **Read the project README** - Each folder has detailed instructions
 3. **Upload the sketch** - Open the `.ino` file and upload to your UNO R4
 4. **Experiment** - The real learning happens when you modify the code!
 
-## 🎓 Learning Path
+## Learning Path
 
 ### Beginner
 - **alphanum** - Display text and understand the frame buffer concept
@@ -74,7 +74,7 @@ When a joystick is required, use this standard connection:
 - **starfield2/3** - Full 3D control with camera movement and projectiles
 - **visual1** - Understanding hardware limitations and creative workarounds
 
-## 🔗 Resources
+## Resources
 
 - [Arduino UNO R4 WiFi Documentation](https://docs.arduino.cc/hardware/uno-r4-wifi)
 - [Arduino LED Matrix Library Reference](https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix)
@@ -82,4 +82,4 @@ When a joystick is required, use this standard connection:
 
 ---
 
-**Light up your learning! ✨**
+**Light up your learning!**

@@ -1,16 +1,16 @@
 # Eyeball Animation Projects
 
-## 🎯 Overview
+## Overview
 
 This folder contains Arduino sketches that create animated eye effects on the Arduino UNO R4's built-in LED matrix display. These projects combine graphics programming with interactive hardware control using a joystick to create realistic eye movements and animations.
 
-## 🛠️ Hardware Required
+## Hardware Required
 
 - **Arduino UNO R4 WiFi** (the board with the built-in 8x12 LED matrix)
 - **Analog Joystick Module** (with X, Y axis outputs and button)
 - **Jumper Wires**
 
-## 🔌 Wiring the Joystick
+## Wiring the Joystick
 
 Connect the joystick to your Arduino as follows:
 
@@ -22,9 +22,11 @@ Connect the joystick to your Arduino as follows:
 | VRy | A1 | Y-axis analog output |
 | SW | A2 | Button (switch) |
 
+![Joystick Wiring Diagram](../assets/joystick-wiring.png)
+
 **Note**: The button pin uses `INPUT_PULLUP` mode, so it reads LOW when pressed and HIGH when released.
 
-## 📚 What You'll Learn
+## What You'll Learn
 
 - Reading analog input from joystick potentiometers
 - Mapping analog values (0-1023) to screen coordinates
@@ -34,7 +36,7 @@ Connect the joystick to your Arduino as follows:
 - Frame-by-frame animation techniques
 - Drawing complex graphics with pixel arrays
 
-## 🎨 Projects in This Folder
+## Projects in This Folder
 
 ### eye1 - Joystick-Controlled Eye Tracker
 
@@ -54,14 +56,14 @@ More eye animation variations are in development, including:
 - Multiple eyes with coordinated movement
 - Interactive "follow the object" games
 
-## 🔗 Resources
+## Resources
 
 - **Joystick Tutorial**: [Arduino Joystick Guide - ArduinoGetStarted.com](https://arduinogetstarted.com/tutorials/arduino-joystick)
 - [Arduino Analog Input Reference](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/)
 - [Arduino UNO R4 WiFi Documentation](https://docs.arduino.cc/hardware/uno-r4-wifi)
 - [Arduino LED Matrix Library](https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix)
 
-## 💡 Understanding Joystick Input
+## Understanding Joystick Input
 
 An analog joystick contains two potentiometers (variable resistors):
 - **X-axis**: Horizontal movement (left/right)
@@ -74,7 +76,7 @@ Each axis outputs a voltage that the Arduino reads as a number from **0 to 1023*
 
 The `map()` function converts these values into useful screen coordinates.
 
-## 🎓 Advanced Challenges
+## Advanced Challenges
 
 Once you've mastered the basic eye tracking:
 1. Add iris detail (colored ring around the pupil)
@@ -86,4 +88,4 @@ Once you've mastered the basic eye tracking:
 
 ---
 
-**Happy Making! 👁️**
+**Happy Making!**

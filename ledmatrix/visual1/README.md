@@ -1,10 +1,10 @@
 # Visual1 - Matrix Digital Rain (AI Experiment)
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This sketch creates a "Matrix-style" digital rain effect - columns of pixels falling from top to bottom with trailing fade effects. It's also an experiment in **using AI to generate Arduino code** and learning why some visual effects work differently than expected on LED matrices.
 
-## 🤖 The AI Experiment Story
+## The AI Experiment Story
 
 **The Goal:** Create the iconic Matrix digital rain effect with pixels that gradually fade out as they fall, leaving glowing trails behind each drop.
 
@@ -12,7 +12,7 @@ This sketch creates a "Matrix-style" digital rain effect - columns of pixels fal
 
 **Why PWM doesn't work here:** The `renderBitmap()` function writes the **entire frame at once** to the LED matrix. The refresh cycle is too slow for persistence-of-vision effects. If you try to rapidly switch pixels on/off at different rates to simulate brightness, they just **blink** instead of appearing to dim.
 
-## 🛠️ The Workaround Solution
+## The Workaround Solution
 
 Since we can't actually fade pixels, we **simulate** a fade trail using a clever counter system:
 
@@ -36,7 +36,7 @@ Each pixel has a "brightness" value that acts like a countdown timer:
 
 **Result:** Instead of a smooth fade, pixels **blink off sequentially** creating a discrete "step fade" - not quite the smooth gradient we wanted, but still a cool falling rain effect!
 
-## 🎮 Hardware Required
+## Hardware Required
 
 - **Arduino UNO R4 WiFi** (with built-in 8x12 LED matrix)
 - **Analog Joystick Module**
@@ -45,12 +45,12 @@ Each pixel has a "brightness" value that acts like a countdown timer:
   - VRx → A0 (X-axis for "wind" effect)
   - SW → A2 (Freeze button)
 
-## 🎮 Controls
+## Controls
 
 - **Joystick X-axis (A0)** - "Wind" effect: leans rain columns left or right (creates diagonal rain)
 - **Press button (A2)** - Freeze/unfreeze the rain animation
 
-## 💡 Key Things to Tweak
+## Key Things to Tweak
 
 ### Easy Changes
 

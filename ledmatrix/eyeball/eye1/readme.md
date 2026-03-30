@@ -1,14 +1,14 @@
 # Eye1 - Interactive Eyeball Tracker
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This sketch creates a realistic eyeball animation on the Arduino UNO R4's LED matrix that responds to joystick input in real-time. Move the joystick to make the eye look around, and press the button to make it blink!
 
-## 🛠️ Hardware Setup
+## Hardware Setup
 
 Follow the main [eyeball folder README](../readme.md) for wiring instructions connecting your joystick to pins A0 (X), A1 (Y), and A2 (button).
 
-## 🎨 How It Works
+## How It Works
 
 ### The Eye Structure
 
@@ -31,7 +31,7 @@ When you press the joystick button, the eye:
 
 The "openness" parameter controls how much of the eye is visible, creating smooth eyelid movement.
 
-## 🧮 Key Programming Concepts
+## Key Programming Concepts
 
 ### Analog Input Mapping
 
@@ -62,7 +62,7 @@ while(digitalRead(PIN_BTN) == LOW);
 ```
 Waits for the button to be released before continuing, preventing multiple blinks from a single press.
 
-## 💡 Try These Modifications
+## Try These Modifications
 
 ### Beginner Level
 1. Change the blink speed by modifying the delay values
@@ -83,7 +83,7 @@ Waits for the button to be released before continuing, preventing multiple blink
 5. Add eyebrow animation above the eye
 6. Make the eyes "watch" something moving across the screen
 
-## 🔍 Understanding the Math
+## Understanding the Math
 
 ### Oval Shape Creation
 

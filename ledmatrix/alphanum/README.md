@@ -1,14 +1,14 @@
 # Alphanumeric LED Matrix Display
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This Arduino sketch displays numbers (0-9) and letters (A-Z) on the Arduino UNO R4's built-in LED matrix display. Each character appears on the screen for one second before moving to the next one.
 
-## 🛠️ Hardware Required
+## Hardware Required
 
 - **Arduino UNO R4 WiFi** (the board with the built-in 8x12 LED matrix)
 
-## 📚 What You'll Learn
+## What You'll Learn
 
 - How to use the Arduino LED Matrix library
 - Working with 2D arrays to represent pixel data
@@ -17,7 +17,7 @@ This Arduino sketch displays numbers (0-9) and letters (A-Z) on the Arduino UNO 
 - Character encoding (ASCII)
 - Functions and modular programming
 
-## 🔧 How It Works
+## How It Works
 
 ### The LED Matrix
 
@@ -57,7 +57,7 @@ The [fonts.h](fonts.h) file contains pixel patterns for each character. Each cha
    - Uses bit shifting to position the character horizontally
    - Uses the OR operator (`|=`) to add the character to the frame
 
-## 💡 Try These Modifications
+## Try These Modifications
 
 ### Beginner Level
 1. Change the delay time to make characters display faster or slower
@@ -76,7 +76,7 @@ The [fonts.h](fonts.h) file contains pixel patterns for each character. Each cha
 3. Add user input via Serial Monitor to display custom messages
 4. Create a simple game using the LED matrix
 
-## 📝 Understanding Bit Operations
+## Understanding Bit Operations
 
 The code uses binary (base-2) numbers and bitwise operations:
 
@@ -95,7 +95,7 @@ The code uses binary (base-2) numbers and bitwise operations:
 0b01010 | 0b00110 = 0b01110
 ```
 
-## 🔗 Resources
+## Resources
 
 - **Font Source**: [ArduinoGetStarted.com LED Matrix Tutorial](https://arduinogetstarted.com/tutorials/arduino-uno-r4-led-matrix-displays-number-character)
 - [Arduino UNO R4 WiFi Documentation](https://docs.arduino.cc/hardware/uno-r4-wifi)

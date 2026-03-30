@@ -1,10 +1,10 @@
 # Starfield3 - Spaceship Simulator with Laser Cannons
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This is the complete starfield experience! You control a spaceship flying through space with a joystick, and you can fire dual laser cannons by pressing the joystick button. It combines everything from starfield1 and starfield2 with weapon systems.
 
-## 🛠️ Hardware Required
+## Hardware Required
 
 - **Arduino UNO R4 WiFi** (the board with the built-in 8x12 LED matrix)
 - **Analog Joystick Module** with button
@@ -14,12 +14,14 @@ This is the complete starfield experience! You control a spaceship flying throug
   - VRy → A1 (Y-axis: up/down steering)
   - SW → A2 (Fire button)
 
-## 🎮 Controls
+![Joystick Wiring Diagram](../../assets/joystick-wiring.png)
+
+## Controls
 
 - **Move joystick** - Steer your ship (stars and lasers move together)
 - **Press button** - Fire dual laser cannons from wing positions
 
-## 🚀 How Laser Fire Works
+## How Laser Fire Works
 
 When you press the joystick button, the code spawns **two laser bolts** simultaneously:
 
@@ -52,7 +54,7 @@ This makes them shoot forward rapidly while stars flow toward you slowly - creat
 3. **Display** - Same 3D-to-2D projection as stars
 4. **Despawn** - When `z > 15.0`, laser is marked inactive and can be reused
 
-## 💡 Key Things to Tweak
+## Key Things to Tweak
 
 ### Easy Changes
 

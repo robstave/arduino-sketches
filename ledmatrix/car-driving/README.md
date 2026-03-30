@@ -1,14 +1,15 @@
 # Car Driving LED Matrix Animation
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This Arduino sketch creates a simple animation of a car "driving" on the Arduino UNO R4's built-in LED matrix display. The car bounces up and down slightly to simulate the motion of driving over a bumpy road.
 
-## 🛠️ Hardware Required
+## Hardware Required
 
 - **Arduino UNO R4 WiFi** (the board with the built-in 8x12 LED matrix)
+ 
 
-## 📚 What You'll Learn
+## What You'll Learn
 
 - Creating sprite graphics (small pixel art images)
 - Animation basics using frame-by-frame changes
@@ -17,7 +18,7 @@ This Arduino sketch creates a simple animation of a car "driving" on the Arduino
 - Drawing objects at different positions on a screen
 - Boundary checking (keeping sprites within screen limits)
 
-## 🔧 How It Works
+## How It Works
 
 ### The Car Sprite
 
@@ -50,7 +51,7 @@ The `draw_car()` function copies each pixel from the car sprite into the frame b
 - `offsetY` controls vertical position (up/down)
 - Boundary checking ensures we don't try to draw outside the 8x12 matrix
 
-## 💡 Try These Modifications
+## Try These Modifications
 
 ### Beginner Level
 1. **Change the speed**: Modify the `delay(150)` values to make the car bounce faster or slower
@@ -70,7 +71,7 @@ The `draw_car()` function copies each pixel from the car sprite into the frame b
 4. **Speed control**: Use the Serial Monitor to control animation speed
 5. **Create a game**: Add user input to move the car up/down to dodge obstacles
 
-## 🎨 Creating Your Own Sprites
+## Creating Your Own Sprites
 
 To create your own sprite:
 
@@ -90,7 +91,7 @@ const uint8_t smiley[5][5] = {
 };
 ```
 
-## 🎓 Animation Concepts
+## Animation Concepts
 
 ### Frame Rate
 The delay between frames (150ms) gives us about 6-7 frames per second. This is the "frame rate" - how fast the animation updates.
@@ -101,7 +102,7 @@ The delay between frames (150ms) gives us about 6-7 frames per second. This is t
 ### Persistence of Vision
 Your eyes hold onto images for a split second after seeing them. When images change fast enough (usually 15+ frames per second), your brain blends them together, creating the illusion of smooth motion. That's how movies, TV, and this car animation work!
 
-## 🔗 Resources
+## Resources
 
 - [Arduino UNO R4 WiFi Documentation](https://docs.arduino.cc/hardware/uno-r4-wifi)
 - [Arduino LED Matrix Library Reference](https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix)
@@ -113,4 +114,4 @@ This code is in the public domain. Feel free to use and modify it for your own p
 
 ---
 
-**Happy Animating! 🚗💨**
+ 
