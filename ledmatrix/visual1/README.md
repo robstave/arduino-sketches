@@ -1,5 +1,7 @@
 # Visual1 - Matrix Digital Rain (AI Experiment)
 
+**Note:** This effect works but is not amazing due to LED matrix hardware limitations (no PWM/brightness control). It creates a discrete "step fade" rather than smooth gradients. See the technical details below for why.
+
 ## What This Project Does
 
 This sketch creates a "Matrix-style" digital rain effect - columns of pixels falling from top to bottom with trailing fade effects. It's also an experiment in **using AI to generate Arduino code** and learning why some visual effects work differently than expected on LED matrices.
@@ -39,13 +41,28 @@ Each pixel has a "brightness" value that acts like a countdown timer:
 ## Hardware Required
 
 - **Arduino UNO R4 WiFi** (with built-in 8x12 LED matrix)
-- **Analog Joystick Module**
+- **Analog Joystick Module** (optional)
   - VCC → 5V
   - GND → GND
   - VRx → A0 (X-axis for "wind" effect)
   - SW → A2 (Freeze button)
 
+### Running Without a Joystick
+
+Set the `USE_JOYSTICK` flag to `false` at the top of the sketch:
+
+```cpp
+const bool USE_JOYSTICK = false;
+```
+
+When disabled:
+- Rain falls straight down (no wind effect)
+- Animation never freezes
+- No joystick hardware needed
+
 ## Controls
+
+(Only available when `USE_JOYSTICK = true`)
 
 - **Joystick X-axis (A0)** - "Wind" effect: leans rain columns left or right (creates diagonal rain)
 - **Press button (A2)** - Freeze/unfreeze the rain animation
@@ -108,7 +125,7 @@ Each pixel has a "brightness" value that acts like a countdown timer:
 
 10. **Color patterns:** If you had an RGB matrix, extend the brightness counter to include color values
 
-## 🎓 What You're Learning
+## What You're Learning
 
 - **Hardware limitations** - Understanding what your device CAN'T do is as important as knowing what it can
 - **Creative workarounds** - When Plan A doesn't work, find Plan B (simulated fade instead of real fade)
@@ -116,7 +133,7 @@ Each pixel has a "brightness" value that acts like a countdown timer:
 - **Frame decay systems** - Technique used in many games for trails, motion blur, and effects
 - **State machines** - Each drop has a state (active/inactive) and lifecycle
 
-## 🤖 Using This as an AI Starting Point
+## Using This as an AI Starting Point
 
 This sketch is **perfect for experimenting with AI coding tools**:
 
@@ -140,7 +157,7 @@ This sketch is **perfect for experimenting with AI coding tools**:
 3. Figure out WHY
 4. Try again with that knowledge
 
-## 🐛 Why Fade Doesn't Work: The Technical Details
+## Why Fade Doesn't Work: The Technical Details
 
 For those curious about the PWM limitation:
 
@@ -161,7 +178,7 @@ For those curious about the PWM limitation:
 - External LED matrix with PWM support (like NeoPixel matrices)
 - Dithering techniques (alternate pixels on/off in patterns to simulate gray)
 
-## 🔗 Resources
+## Resources
 
 - [Arduino UNO R4 WiFi Documentation](https://docs.arduino.cc/hardware/uno-r4-wifi)
 - [Arduino LED Matrix Library](https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix)
@@ -169,4 +186,4 @@ For those curious about the PWM limitation:
 
 ---
 
-**Now go break things and make them better! 🤖✨**
+**Now go break things and make them better!**

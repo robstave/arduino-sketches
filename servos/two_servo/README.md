@@ -1,10 +1,10 @@
 # Two Servo - Synchronized Movement
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This sketch controls TWO servo motors, making them sweep back and forth in perfect synchronization. Both servos move together at the same speed, creating coordinated motion.
 
-## 🔌 Hardware Required
+## Hardware Required
 
 - **Arduino UNO** (any model)
 - **2× Hobby servo motors** (SG90, MG90S, or similar)
@@ -20,9 +20,9 @@ This sketch controls TWO servo motors, making them sweep back and forth in perfe
 | Signal | - | Pin 9 |
 | - | Signal | Pin 10 |
 
-**⚠️ Power Warning:** Two servos can draw significant current. If servos jitter, twitch, or Arduino resets, you MUST use external power (4× AA battery pack connected to servo power wires, with GND connected to Arduino GND).
+**Power Warning:** Two servos can draw significant current. If servos jitter, twitch, or Arduino resets, you MUST use external power (4× AA battery pack connected to servo power wires, with GND connected to Arduino GND).
 
-## 🎮 How It Works
+## How It Works
 
 ### Two Servo Objects
 
@@ -44,7 +44,7 @@ myservo2.write(pos);
 
 This creates perfectly synchronized sweeps - like two windshield wipers or robot arms moving in unison.
 
-## 💡 Key Things to Tweak
+## Key Things to Tweak
 
 ### Easy Changes
 

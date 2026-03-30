@@ -1,10 +1,10 @@
 # One Servo - Basic Sweep
 
-## 🎯 What This Project Does
+## What This Project Does
 
 This sketch makes a single servo motor sweep back and forth smoothly between 0° and 180°, taking 3 seconds for each direction. It's the foundation for understanding servo control.
 
-## 🔌 Hardware Required
+## Hardware Required
 
 - **Arduino UNO** (any model)
 - **Hobby servo motor** (SG90, MG90S, or similar)
@@ -18,7 +18,7 @@ This sketch makes a single servo motor sweep back and forth smoothly between 0°
 | Brown/Black (Ground) | GND |
 | Orange/Yellow (Signal) | Pin 9 |
 
-## 🎮 How It Works
+## How It Works
 
 ### The Sweep Motion
 
@@ -54,7 +54,7 @@ This converts step number (0 to 200) into angle (0° to 180°):
 - Step 100 → 90°
 - Step 200 → 180°
 
-## 💡 Key Things to Tweak
+## Key Things to Tweak
 
 ### Easy Changes
 

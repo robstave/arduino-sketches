@@ -19,9 +19,14 @@
 
 #include "Arduino_LED_Matrix.h"
 
+// --- Configuration ---
+// Set to false to run without a joystick (uses default middle values)
+const bool USE_JOYSTICK = true;
+
+ 
+
 ArduinoLEDMatrix matrix;
 
-// --- Configuration ---
 const int COLS = 12;
 const int ROWS = 8;
 
@@ -76,15 +81,20 @@ void loop() {
   unsigned long tickStart = millis();
 
   // --- Read inputs ---
-  int joyX  = analogRead(PIN_X);
-  bool btn  = digitalRead(PIN_BTN);
+  int joyX = 512;  // Default middle value
+  bool btn = HIGH; // Default not pressed
+  
+  if (USE_JOYSTICK) {
+    joyX = analogRead(PIN_X);
+    btn  = digitalRead(PIN_BTN);
 
-  // Toggle freeze on button press
-  if (btn == LOW && lastBtn == HIGH) {
-    frozen = !frozen;
-    delay(50); // debounce
+    // Toggle freeze on button press
+    if (btn == LOW && lastBtn == HIGH) {
+      frozen = !frozen;
+      delay(50); // debounce
+    }
+    lastBtn = btn;
   }
-  lastBtn = btn;
 
   // Wind: joystick X offset applied to new drop spawning column
   // Represents diagonal lean: -2 to +2 column lean

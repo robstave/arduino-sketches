@@ -2,7 +2,7 @@
 
 Learn how to control servo motors with Arduino - from simple sweeps to coordinated multi-servo movements.
 
-## 🔧 About Servo Motors
+## About Servo Motors
 
 Servo motors are special motors that can move to a specific angle (0° to 180°) and hold that position. They're perfect for:
 - Robot arms and grippers
@@ -10,14 +10,14 @@ Servo motors are special motors that can move to a specific angle (0° to 180°)
 - RC car steering
 - Animatronics and moving displays
 
-## 📊 Project Overview
+## Project Overview
 
 | Sketch | Readme | Description | Servos Needed |
 |--------|--------|-------------|---------------|
 | one_servo | [one_servo/README.md](one_servo/README.md) | Single servo sweep (0° ↔ 180°) | 1 |
 | two_servo | [two_servo/README.md](two_servo/README.md) | Two servos sweeping in sync | 2 |
 
-## 🔌 Servo Wiring
+## Servo Wiring
 
 ### Standard 3-Wire Servo Connection
 
@@ -41,7 +41,7 @@ If you have multiple servos or high-torque servos:
 3. Connect servo red wires to external power, NOT Arduino 5V
 4. Still connect servo signal wires to Arduino pins 9/10
 
-## 💡 How Servo Control Works
+## How Servo Control Works
 
 ### PWM (Pulse Width Modulation)
 
@@ -68,7 +68,7 @@ for (int pos = 0; pos <= 180; pos++) {
 
 This creates smooth, realistic motion instead of jerky jumps.
 
-## 🎓 Learning Progression
+## Learning Progression
 
 ### 1. [one_servo](one_servo/) - Basic Control
 
@@ -86,7 +86,7 @@ Learn multi-servo techniques:
 - Independent positioning
 - Creating complex motions
 
-## 💡 Common Uses for Servos
+## Common Uses for Servos
 
 - **Robotics** - Joints, grippers, arms
 - **RC vehicles** - Steering, camera gimbals
@@ -94,7 +94,7 @@ Learn multi-servo techniques:
 - **Art projects** - Kinetic sculptures, interactive displays
 - **Instruments** - Automated percussion, chord changers
 
-## 🔧 Bill of Materials
+## Bill of Materials
 
 | Component | Quantity | Notes |
 |-----------|----------|-------|
