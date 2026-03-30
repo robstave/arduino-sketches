@@ -26,8 +26,8 @@ ArduinoLEDMatrix matrix;
 const int COLS = 12;
 const int ROWS = 8;
 
-const int PIN_X   = A0;
-const int PIN_Y   = A1;
+const int PIN_X = A0;
+const int PIN_Y = A1;
 const int PIN_BTN = A2;
 
 uint8_t frame[ROWS][COLS];
@@ -51,46 +51,53 @@ int scrollDelay = 40;
 uint8_t bytebeat(unsigned long t);
 
 // Evaluate the current bytebeat formula
-uint8_t bytebeat(unsigned long t) {
-  switch (currentFormula) {
-    case 0:
-      // "Crowd" - Viznut's original. Grinding, rhythmic, iconic.
-      return t * (((t >> 12) | (t >> 8)) & (63 & (t >> 4)));
+uint8_t bytebeat(unsigned long t)
+{
+  switch (currentFormula)
+  {
 
-    case 1:
-      // "Sierpinski Harmony" - Fractal triangles, two interleaved melodies.
-      return (t * 5 & t >> 7) | (t * 3 & t >> 10);
+  case 0:
+    // "FM Madness" - Clean 6-bit patterns, parabolic waveform.
+    return t * t >> 8 & 63;
 
-    case 2:
-      // "42 Melody" - Surprisingly musical from a tiny expression.
-      return t * (42 & t >> 10);
+  case 1:
 
-    case 3:
-      // "Tejeez" - Smooth descending cascade with volume envelope.
-      return (t * (t >> 5 | t >> 8)) >> (t >> 16);
+    return (t * 465 / (43 + 6 * (t >> 15 & 3 ^ 1)));
 
-    case 4:
-      // "Chip-tune" - Old-school video game vibes.
-      return t * ((t >> 9 | t >> 13) & 25 & t >> 6);
+  case 2:
+    // "Tejeez" - Smooth descending cascade with volume envelope.
+    // good
+    return (t * (t >> 5 | t >> 8)) >> (t >> 16);
 
-    case 5:
-      // "Three-voice" - Three layered voices, algorithmic choir.
-      return (t * 9 & t >> 4 | t * 5 & t >> 7 | t * 3 & t / 1024) - 1;
+  case 3:
 
-    case 6:
-      // "FM Madness" - Clean 6-bit patterns, parabolic waveform.
-      return t * t >> 8 & 63;
+    return ((t & 16) / 8 - 1) * (t * (t ^ 15) + t + 127);
 
-    case 7:
-      // "Lost in Space" - Spacey, ambient, hypnotic.
-      return ((t * (t >> 8 | t >> 9) & 46 & t >> 8)) ^ (t & t >> 13 | t >> 6);
+  case 4:
+    // "Three-voice" - Three layered voices, algorithmic choir.
+    return (t * 9 & t >> 4 | t * 5 & t >> 7 | t * 3 & t / 1024) - 1;
 
-    default:
-      return t;
+  case 5:
+    // "Chip-tune" - Old-school video game vibes.
+    return t * ((t >> 9 | t >> 13) & 25 & t >> 6);
+
+  case 6:
+    // "Lost in Space" - Spacey, ambient, hypnotic.
+    return ((t * (t >> 8 | t >> 9) & 46 & t >> 8)) ^ (t & t >> 13 | t >> 6);
+
+  case 7:
+    // "42 Melody" - Surprisingly musical from a tiny expression.
+    // slow start, but gets more interesting as t increases. The two melodies are created by the two parts of the expression, and the bitwise AND creates a pattern that resembles the Sierpinski triangle when visualized.
+
+    return t * (42 & t >> 10);
+
+  default:
+    return t;
   }
 }
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   matrix.begin();
 
@@ -101,14 +108,16 @@ void setup() {
   memset(frame, 0, sizeof(frame));
 }
 
-void loop() {
+void loop()
+{
   // --- Read inputs ---
   int joyX = analogRead(PIN_X);
   int joyY = analogRead(PIN_Y);
   bool btn = digitalRead(PIN_BTN);
 
   // Button: reset t (restart pattern from the beginning)
-  if (btn == LOW && lastBtn == HIGH) {
+  if (btn == LOW && lastBtn == HIGH)
+  {
     t = 0;
     memset(frame, 0, sizeof(frame));
     delay(50);
@@ -118,21 +127,30 @@ void loop() {
   // Joystick X: change formula when pushed left or right
   // Uses "zone" detection so you get one switch per push
   int zone;
-  if (joyX < 300) {
+  if (joyX < 300)
+  {
     zone = 0; // left
-  } else if (joyX > 723) {
+  }
+  else if (joyX > 723)
+  {
     zone = 2; // right
-  } else {
+  }
+  else
+  {
     zone = 1; // center
   }
 
-  if (zone != lastZone) {
-    if (zone == 0 && lastZone == 1) {
+  if (zone != lastZone)
+  {
+    if (zone == 0 && lastZone == 1)
+    {
       // Pushed left -> previous formula
       currentFormula = (currentFormula - 1 + NUM_FORMULAS) % NUM_FORMULAS;
       t = 0;
       memset(frame, 0, sizeof(frame));
-    } else if (zone == 2 && lastZone == 1) {
+    }
+    else if (zone == 2 && lastZone == 1)
+    {
       // Pushed right -> next formula
       currentFormula = (currentFormula + 1) % NUM_FORMULAS;
       t = 0;
@@ -147,16 +165,31 @@ void loop() {
   // --- Compute bytebeat value ---
   uint8_t val = bytebeat(t);
 
+  // --- Debug output ---
+  Serial.print("t: ");
+  Serial.print(t);
+  Serial.print("  zone: ");
+  Serial.print(zone);
+  Serial.print("  lastZone: ");
+  Serial.print(lastZone);
+  Serial.print("  formula: ");
+  Serial.print(currentFormula);
+  Serial.print("  val: ");
+  Serial.println(val);
+
   // --- Scroll frame left by one column ---
-  for (int r = 0; r < ROWS; r++) {
-    for (int c = 0; c < COLS - 1; c++) {
+  for (int r = 0; r < ROWS; r++)
+  {
+    for (int c = 0; c < COLS - 1; c++)
+    {
       frame[r][c] = frame[r][c + 1];
     }
   }
 
   // --- Draw new byte as rightmost column ---
   // Bit 7 (MSB) = top row, bit 0 (LSB) = bottom row
-  for (int r = 0; r < ROWS; r++) {
+  for (int r = 0; r < ROWS; r++)
+  {
     frame[r][COLS - 1] = (val >> (7 - r)) & 1;
   }
 
@@ -166,3 +199,16 @@ void loop() {
   t++;
   delay(scrollDelay);
 }
+
+// others
+
+// "Sierpinski Harmony" - Fractal triangles, two interleaved melodies.
+
+// slow start, but gets more interesting as t increases. The two melodies are created by the two parts of the expression, and the bitwise AND creates a pattern that resembles the Sierpinski triangle when visualized.
+// return (t * 5 & t >> 7) | (t * 3 & t >> 10);
+
+// "Crowd" - Viznut's original. Grinding, rhythmic, iconic.
+// This is cool when its running, but lots of silent bits at the beginning until t gets large enough. Use the button to reset and watch it "boot up" from silence.
+// can you fix this?
+
+//    return t * (((t >> 12) | (t >> 8)) & (63 & (t >> 4)));
